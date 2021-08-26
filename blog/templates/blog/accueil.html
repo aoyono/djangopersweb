@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block titre %}Blog de Fingon Tralala{% endblock %}
+
+{% block contenu %}
+  {% for article in articles %}
+    <article>
+      <h2><a href="{% url 'blog:article' cle_primaire=article.pk %}">{{ article.titre }}</a></h2>
+      {% if article.date_publication %}
+        <time>Publié le : {{ article.date_publication }}</time>
+      {% else %}
+        <i>Non publié</i>
+      {% endif %}
+    </article><br>
+  {% endfor %}
+{% endblock %}

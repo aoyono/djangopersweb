@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block titre %}{{ article.titre }}{% endblock %}
+
+{% block footercss %}
+position: relative;
+{% endblock %}
+
+{% block contenu %}
+  <article>
+    {% if article.date_publication %}
+      <time>
+        {{ article.date_publication }}
+      </time>
+    {% else %}
+      <i>Non publié</i>
+    {% endif %}
+    <h2>{{ article.titre }}</h2>
+    <p>{{ article.texte|linebreaksbr }}</p>
+  </article>
+{% endblock %}
